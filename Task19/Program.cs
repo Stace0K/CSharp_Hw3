@@ -8,14 +8,18 @@ int Number(string figure)
     int result = Convert.ToInt32(matter);
     return result;
 }
+
+
 //2. Проверка на пятизначность
-// void FiveFigure(int numb)
-// {
-//     if (numb > 99999 || numb < 10000)
-//     {
-//         Console.WriteLine("Не похоже на пятизначное число");
-//     }
-// }
+bool FiveFigure(int numb)
+{
+    while (numb > 99999 || numb < 10000)
+    {
+        Console.WriteLine("Не похоже на пятизначное число");
+        return false;
+    }
+    return true;
+}
 
 //3. Разворот числа
 int Reverse(int figure)
@@ -39,7 +43,10 @@ void Palindrome(int nu1, int nu2)
     else Console.WriteLine("Это не палиндром");
 }
 
-
+//5. Результат
 int a = Number("Введите пятизначное число: ");
-int rev = Reverse(a);
-Palindrome(a, rev);
+if (FiveFigure(a))
+{
+    int rev = Reverse(a);
+    Palindrome(a, rev);
+}
